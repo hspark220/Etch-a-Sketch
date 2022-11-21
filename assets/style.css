@@ -1,0 +1,23 @@
+/* 
+styling for testing
+showing borders
+*/
+
+.main-container {
+    border: solid;
+    width: 500px;
+    height: 500px;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.squares {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid;
+}
