@@ -8,6 +8,11 @@ let sqrWidth = conDim/numSquPerSide;
 const container = document.querySelector('.main-container');
 container.style.cssText = `width: ${conDim}px; height: ${conDim}px;`;
 
+const ranNum = () => {
+    const random = Math.floor(Math.random()*255);
+    return random;
+}
+
 /*
 pseudo code for looping the squares
  - while loop checking if the height of square has been passed
@@ -23,15 +28,19 @@ const updateScreen = () => {
 
     sqrWidth = conDim/numSquPerSide;
     for (let i = 0; i < numSquPerSide**2; i++) {
-        const squares = document.createElement('div');
-        squares.classList.add('squares');
-        squares.style.cssText = `width: ${sqrWidth}px; height: ${sqrWidth}px;`
-        container.appendChild(squares);
+        const square = document.createElement('div');
+        square.classList.add('squares');
+        square.style.cssText = `width: ${sqrWidth}px; height: ${sqrWidth}px;`
+        container.appendChild(square);
+        square.addEventListener('mouseover', (changeColor) => {
+            square.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
+        });
     }
     
 }
 
-updateScreen();
+
+
 
 //button for changing the number of squares per side
 const changeNumberOfSquare = () => {
@@ -42,3 +51,5 @@ const changeNumberOfSquare = () => {
 
 const changeNumSideBtn = document.querySelector('#change-number-of-sides');
 changeNumSideBtn.addEventListener('click', changeNumberOfSquare);
+
+updateScreen();
