@@ -13,18 +13,9 @@ const ranNum = () => {
     return random;
 }
 
-/*
-pseudo code for looping the squares
- - while loop checking if the height of square has been passed
- - for loop inside while going through each rows
 
-*/
 const updateScreen = () => {
-    //remove old squares
-    const oldSquares = document.querySelectorAll('.squares');
-    oldSquares.forEach(square => {
-        square.remove();
-    });
+    removeOldSquares();
 
     sqrWidth = conDim/numSquPerSide;
     for (let i = 0; i < numSquPerSide**2; i++) {
@@ -32,12 +23,7 @@ const updateScreen = () => {
         square.classList.add('squares');
         square.style.cssText = `width: ${sqrWidth}px; height: ${sqrWidth}px;`
         square.addEventListener('mouseover', changeColor)
-        square.addEventListener('mousedown', changeColor);
         container.appendChild(square);
-
-        // square.addEventListener('mouseover', (changeColor) => {
-        //     square.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
-        // });
     }
     
 }
@@ -46,10 +32,13 @@ const changeColor = (e) => {
     e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
 }
 
+const removeOldSquares = () => {
+    const oldSquares = document.querySelectorAll('.squares');
+    oldSquares.forEach(square => {
+        square.remove();
+    });
+}
 
-
-
-//button for changing the number of squares per side
 const changeNumberOfSquare = () => {
     const newNumSquPerSides = prompt("Choose the number of sides for the square");
     numSquPerSide = newNumSquPerSides < 100 ? newNumSquPerSides : 100;
