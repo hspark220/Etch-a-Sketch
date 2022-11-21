@@ -31,12 +31,19 @@ const updateScreen = () => {
         const square = document.createElement('div');
         square.classList.add('squares');
         square.style.cssText = `width: ${sqrWidth}px; height: ${sqrWidth}px;`
+        square.addEventListener('mouseover', changeColor)
+        square.addEventListener('mousedown', changeColor);
         container.appendChild(square);
-        square.addEventListener('mouseover', (changeColor) => {
-            square.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
-        });
+
+        // square.addEventListener('mouseover', (changeColor) => {
+        //     square.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
+        // });
     }
     
+}
+
+const changeColor = (e) => {
+    e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
 }
 
 
