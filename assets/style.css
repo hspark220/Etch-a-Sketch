@@ -24,9 +24,11 @@ body {
     border: 1px solid;
 }
 
-/* .squares:hover {
-    background-color: aqua;
-} */
+.customize-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 button {
     width: 150px;

@@ -8,6 +8,7 @@ let sqrWidth = conDim/numSquPerSide;
 const colorSelector = document.getElementById('color-mode');
 let colorMode = colorSelector.value;
 
+const sideRange = document.getElementById('number-of-sides');
 
 const container = document.querySelector('.main-container');
 container.style.cssText = `width: ${conDim}px; height: ${conDim}px;`;
@@ -52,8 +53,7 @@ const removeOldSquares = () => {
 }
 
 const changeNumberOfSquare = () => {
-    const newNumSquPerSides = prompt("Choose the number of sides for the square");
-    numSquPerSide = newNumSquPerSides < 100 ? newNumSquPerSides : 100;
+    numSquPerSide = sideRange.value;
     updateScreen();
 }
 

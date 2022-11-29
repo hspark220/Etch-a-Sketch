@@ -10,13 +10,23 @@
 <body>
     <h1>Etch-a-Sketch</h1>
     <div class="main-container"></div>
-    <button id="change-number-of-sides">change number of sides</button>
-    <label for="color-mode">Choose the color mode</label>
-    <select id="color-mode">
-      <option value="random">random</option>
-      <option value="black">black</option>
-      <option value="darker">darker</option>
-    </select>
+    <div class="customize-tools">
+      <div class="sides">
+        <label for="number-of-sides">change for number of sides</label>
+        <input type="range" id="number-of-sides" step="1" min="0" max="100">
+        <button id="change-number-of-sides">change</button>
+      </div>
+      <div class="colors">
+        <label for="color-mode">Choose the color mode</label>
+        <select id="color-mode">
+          <option value="random">random</option>
+          <option value="black">black</option>
+          <option value="darker">darker</option>
+        </select>
+      </div>
+      
+    </div>
+    
     <script src="./assets/script.js"></script>
   </body>
 </html>
