@@ -5,8 +5,14 @@ let conDim = 500;
 let numSquPerSide = 5;
 let sqrWidth = conDim/numSquPerSide;
 
+const colorSelector = document.getElementById('color-mode');
+let colorMode = colorSelector.value;
+
+
 const container = document.querySelector('.main-container');
 container.style.cssText = `width: ${conDim}px; height: ${conDim}px;`;
+
+
 
 const ranNum = () => {
     const random = Math.floor(Math.random()*255);
@@ -29,7 +35,13 @@ const updateScreen = () => {
 }
 
 const changeColor = (e) => {
-    e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
+    colorMode = colorSelector.value;
+    if (colorMode == 'random') {
+        e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
+    } else {
+        e.target.style.backgroundColor = `rgb(0,0,0)`;
+    }
+    
 }
 
 const removeOldSquares = () => {
