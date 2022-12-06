@@ -3,10 +3,12 @@
 
 let conDim = 500;
 let numSquPerSide = 5;
+let oldNumSquPerSide;
 let sqrWidth = conDim/numSquPerSide;
 
-const colorSelector = document.getElementById('color-mode');
-let colorMode = colorSelector.value;
+const modeSelector = document.getElementById('color-mode');
+const colorSelector = document.getElementById('color');
+let colorMode = modeSelector.value;
 
 const sideRange = document.getElementById('number-of-sides');
 
@@ -36,12 +38,15 @@ const updateScreen = () => {
 }
 
 const changeColor = (e) => {
-    colorMode = colorSelector.value;
     if (colorMode == 'random') {
         e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
-    } else {
+    } else if (colorMode == 'black') {
         e.target.style.backgroundColor = `rgb(0,0,0)`;
+    } else if (colorMode == 'choose') {
+        e.target.style.backgroundColor = colorSelector.value;
     }
+
+    console.log(colorSelector.value)
     
 }
 
@@ -52,12 +57,15 @@ const removeOldSquares = () => {
     });
 }
 
-const changeNumberOfSquare = () => {
+const updateChange = () => {
+    oldNumSquPerSide = numSquPerSide;
     numSquPerSide = sideRange.value;
+    colorMode = modeSelector.value;
+    colorSelector.type = colorMode == 'choose' ? 'color' : 'hidden';
     updateScreen();
 }
 
-const changeNumSideBtn = document.querySelector('#change-number-of-sides');
-changeNumSideBtn.addEventListener('click', changeNumberOfSquare);
+const updateBtn = document.querySelector('#update');
+updateBtn.addEventListener('click', updateChange);
 
 updateScreen();
