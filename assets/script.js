@@ -24,6 +24,7 @@ const ranNum = () => {
 
 
 const updateScreen = () => {
+
     removeOldSquares();
 
     sqrWidth = conDim/numSquPerSide;
@@ -44,9 +45,11 @@ const changeColor = (e) => {
         e.target.style.backgroundColor = `rgb(0,0,0)`;
     } else if (colorMode == 'choose') {
         e.target.style.backgroundColor = colorSelector.value;
+    } else if (colorMode == 'darker') {
+        e.target.style.filer = 'brightness(0.9)';
     }
 
-    console.log(colorSelector.value)
+    console.log(e.target.style.backgroundColor)
     
 }
 
