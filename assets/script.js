@@ -5,6 +5,7 @@ let conDim = 500;
 let numSquPerSide = 5;
 let oldNumSquPerSide;
 let sqrWidth = conDim/numSquPerSide;
+let mouseDown = false;
 
 const modeSelector = document.getElementById('color-mode');
 const colorSelector = document.getElementById('color');
@@ -35,13 +36,18 @@ const updateScreen = () => {
         const square = document.createElement('div');
         square.classList.add('squares');
         square.style.cssText = `width: ${sqrWidth}px; height: ${sqrWidth}px;`
-        square.addEventListener('mouseover', changeColor)
+        square.addEventListener('mousedown', changeColor);
+        square.addEventListener('mouseover', changeColor);
         container.appendChild(square);
     }
     
 }
 
 const changeColor = (e) => {
+    if(e.buttons == 0) {
+        return;
+    }
+
     if (colorMode == 'random') {
         e.target.style.backgroundColor = `rgb(${ranNum()}, ${ranNum()}, ${ranNum()})`;
     } else if (colorMode == 'black') {
@@ -51,8 +57,6 @@ const changeColor = (e) => {
     } else if (colorMode == 'darker') {
         e.target.style.filer = 'brightness(0.9)';
     }
-
-    console.log(e.target.style.backgroundColor)
     
 }
 
@@ -67,7 +71,7 @@ const updateChange = () => {
     oldNumSquPerSide = numSquPerSide;
     numSquPerSide = sideRange.value;
     colorMode = modeSelector.value;
-    colorSelector.type = colorMode == 'choose' ? 'color' : 'hidden';
+    //colorSelector.type = colorMode == 'choose' ? 'color' : 'hidden';
     updateScreen();
 }
 
