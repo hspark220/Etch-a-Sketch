@@ -24,6 +24,9 @@ const ranNum = () => {
 
 
 const updateScreen = () => {
+    if(oldNumSquPerSide == numSquPerSide) {
+        return;
+    }
 
     removeOldSquares();
 
