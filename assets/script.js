@@ -71,7 +71,7 @@ const updateChange = () => {
     oldNumSquPerSide = numSquPerSide;
     numSquPerSide = sideRange.value;
     colorMode = modeSelector.value;
-    //colorSelector.type = colorMode == 'choose' ? 'color' : 'hidden';
+    colorSelector.type = colorMode == 'choose' ? 'color' : 'hidden';
     updateScreen();
 }
 

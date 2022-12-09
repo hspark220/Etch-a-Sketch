@@ -8,13 +8,15 @@ body {
 }
 
 .main-container {
-    border: 1px solid;
-    padding: 0;
+    border: none;
+    padding: 5px;
     margin: 30px auto;
 
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .squares {
