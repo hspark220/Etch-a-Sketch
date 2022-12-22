@@ -2,12 +2,26 @@
 styling for testing
 showing borders
 */
-
+:root {
+    display: grid;
+    place-items: center;
+}
 body {
     text-align: center;
+
+    display: grid;
+    grid-template: 200px 1fr / 500px  600px;
+    grid-template-areas:
+    "title title"
+    "tools sketch-box"
+}
+h1 {
+    grid-area: title;
 }
 
 .main-container {
+    grid-area: sketch-box;
+
     border: none;
     padding: 5px;
     margin: 30px auto;
